@@ -19,19 +19,20 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
           vertical: 10.0,
         ),
         color: Colors.black,
-        child: const Text(
-          ' Zero To Unicorn',
-          style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Avenir',
-              fontSize: 24,
-              fontWeight: FontWeight.bold),
+        child: Text(
+          title,
+          style: Theme.of(context)
+              .textTheme
+              .headline2!
+              .copyWith(color: Colors.white),
         ),
       ),
       iconTheme: const IconThemeData(color: Colors.black),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/wishlist');
+          },
           icon: const Icon(
             Icons.favorite,
           ),

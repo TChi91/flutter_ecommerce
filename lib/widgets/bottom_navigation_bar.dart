@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
-class MyBottomNavigationBar extends StatelessWidget {
+class MyBottomNavigationBar extends StatefulWidget {
   const MyBottomNavigationBar({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
+}
+
+class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
+  int currentIndex = 0;
+  @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: 2,
+      onTap: _onTap,
+      currentIndex: currentIndex,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.amber,
       unselectedItemColor: Colors.white,
@@ -31,5 +38,22 @@ class MyBottomNavigationBar extends StatelessWidget {
         )
       ],
     );
+  }
+
+  _onTap(int tabIndex) {
+    setState(() {
+      currentIndex = tabIndex;
+    });
+    switch (tabIndex) {
+      case 0:
+        Navigator.pushNamed(context, "/");
+        break;
+      case 1:
+        Navigator.pushNamed(context, "/cart");
+        break;
+      case 2:
+        Navigator.pushNamed(context, "/profile");
+        break;
+    }
   }
 }
