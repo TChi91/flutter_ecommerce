@@ -22,7 +22,6 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
       backgroundColor: Colors.black,
       items: const [
         BottomNavigationBarItem(
-          backgroundColor: Colors.red,
           label: 'Home',
           icon: Icon(Icons.home),
         ),

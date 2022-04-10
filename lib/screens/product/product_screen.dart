@@ -17,7 +17,6 @@ class ProductScreen extends StatelessWidget {
     return const SafeArea(
       child: Scaffold(
         appBar: MyAppBar(title: 'Product Details'),
-        bottomNavigationBar: MyBottomNavigationBar(),
       ),
     );
   }
