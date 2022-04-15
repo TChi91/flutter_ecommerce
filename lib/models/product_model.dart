@@ -38,7 +38,7 @@ class Product extends Equatable {
     ),
     const Product(
       name: 'Soft Drink #2',
-      category: 'Soft Drinks',
+      category: 'Smoothies',
       imageUrl:
           'https://www.foodbeverageinsider.com/sites/foodbeverageinsider.com/files/styles/article_featured_standard/public/FBI%20carbonated%20soft%20drinks.jpg?itok=PXKTdVMR,',
       price: 1.99,
@@ -47,7 +47,7 @@ class Product extends Equatable {
     ),
     const Product(
       name: 'Soft Drink #3',
-      category: 'Soft Drinks',
+      category: 'Smoothies',
       imageUrl:
           'https://blog.drinktec.com/wp-content/uploads/2019/05/soft-drinks-without-sugar-1024x484.jpg',
       price: 5.00,
@@ -83,7 +83,7 @@ class Product extends Equatable {
     ),
     const Product(
       name: 'Soft Drink #7',
-      category: 'Soft Drinks',
+      category: 'Smoothies',
       imageUrl:
           'https://dmrqkbkq8el9i.cloudfront.net/Pictures/780xany/3/9/2/175392_alexloup4glwid1uhe0unsplash_390262_crop.jpg',
       price: 6.99,

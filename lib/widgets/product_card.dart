@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+  final double widthFactor;
   const ProductCard({
     Key? key,
     required this.product,
+    this.widthFactor = 2.5,
   }) : super(key: key);
 
   @override
@@ -14,7 +16,7 @@ class ProductCard extends StatelessWidget {
       children: [
         SizedBox(
           height: 150.0,
-          width: MediaQuery.of(context).size.width / 2.5,
+          width: MediaQuery.of(context).size.width / widthFactor,
           child: Image.network(
             product.imageUrl,
             fit: BoxFit.cover,
