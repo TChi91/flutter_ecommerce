@@ -12,66 +12,71 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-          height: 150.0,
-          width: MediaQuery.of(context).size.width / widthFactor,
-          child: Image.network(
-            product.imageUrl,
-            fit: BoxFit.cover,
-          ),
-        ),
-        Positioned(
-          top: 80.0,
-          left: 5.0,
-          child: Container(
-            height: 65.0,
-            width: MediaQuery.of(context).size.width / 2.5 - 10,
-            color: Colors.black.withOpacity(0.7),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 5.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          product.name,
-                          style:
-                              Theme.of(context).textTheme.headline3!.copyWith(
-                                    color: Colors.white,
-                                  ),
-                        ),
-                        Text(
-                          '\$${product.price}',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline3!
-                              .copyWith(color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.add_circle,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, '/product', arguments: product);
+      },
+      child: Stack(
+        children: [
+          SizedBox(
+            height: 150.0,
+            width: MediaQuery.of(context).size.width / widthFactor,
+            child: Image.network(
+              product.imageUrl,
+              fit: BoxFit.cover,
             ),
           ),
-        )
-      ],
+          Positioned(
+            top: 80.0,
+            left: 5.0,
+            child: Container(
+              height: 65.0,
+              width: MediaQuery.of(context).size.width / 2.5 - 10,
+              color: Colors.black.withOpacity(0.7),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 5.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            product.name,
+                            style:
+                                Theme.of(context).textTheme.headline3!.copyWith(
+                                      color: Colors.white,
+                                    ),
+                          ),
+                          Text(
+                            '\$${product.price}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline3!
+                                .copyWith(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add_circle,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

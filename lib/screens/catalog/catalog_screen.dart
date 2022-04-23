@@ -24,8 +24,8 @@ class CatalogScreen extends StatelessWidget {
       appBar: MyAppBar(title: category.name),
       body: GridView.builder(
           padding: const EdgeInsets.symmetric(
-            horizontal: 8.0,
-            vertical: 16.0,
+            horizontal: 15.0,
+            vertical: 15.0,
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -36,7 +36,7 @@ class CatalogScreen extends StatelessWidget {
             return Center(
               child: ProductCard(
                 product: categoryProducts[index],
-                widthFactor: 2.2,
+                widthFactor: 2.5,
               ),
             );
           }),
