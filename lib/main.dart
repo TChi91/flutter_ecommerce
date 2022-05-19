@@ -1,7 +1,9 @@
+import 'package:ecommerce/blocs/wishlist/wishlist_bloc.dart';
 import 'package:ecommerce/config/app_router.dart';
 import 'package:ecommerce/config/theme.dart';
 import 'package:ecommerce/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'screens/screens.dart';
 
@@ -14,13 +16,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: theme(),
-      home: const MyHomeScreen(),
-      onGenerateRoute: AppRoute.onGeneratedRoute,
-      initialRoute: HomeScreen.routeName,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => WishlistBloc()..add(LoadWishlist()))
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: theme(),
+        home: const MyHomeScreen(),
+        onGenerateRoute: AppRoute.onGeneratedRoute,
+        initialRoute: HomeScreen.routeName,
+      ),
     );
   }
 }
@@ -46,36 +53,42 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
           ProfileScreen(),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        onTap: _onTap,
-        currentIndex: currentIndex,
-        type: BottomNavigationBarType.shifting,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
-        items: const [
-          BottomNavigationBarItem(
-            backgroundColor: Colors.blue,
-            label: 'Home',
-            icon: Icon(Icons.home),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.black,
+        child: SizedBox(
+          height: 73.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+                icon: const Icon(Icons.home_filled),
+              ),
+              IconButton(
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/cart');
+                },
+                icon: const Icon(Icons.shopping_cart),
+              ),
+              IconButton(
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+                icon: const Icon(Icons.person),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            backgroundColor: Colors.red,
-            label: 'Card',
-            icon: Icon(
-              Icons.shopping_cart,
-            ),
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: Colors.green,
-            label: 'Profile',
-            icon: Icon(Icons.person),
-          )
-        ],
+        ),
       ),
     );
   }
 
+  // ignore: unused_element
   _onTap(int tabIndex) {
     setState(() {
       currentIndex = tabIndex;

@@ -17,6 +17,7 @@ class CartScreen extends StatelessWidget {
     return const SafeArea(
       child: Scaffold(
         appBar: MyAppBar(title: 'Cart'),
+        
       ),
     );
   }
