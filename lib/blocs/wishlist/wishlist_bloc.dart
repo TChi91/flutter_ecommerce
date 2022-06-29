@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce/models/models.dart';
-import 'package:ecommerce/models/wishlist_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'wishlist_event.dart';

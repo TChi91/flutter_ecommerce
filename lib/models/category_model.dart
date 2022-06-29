@@ -16,7 +16,7 @@ class Category extends Equatable {
     const Category(
       name: 'Soft Drinks',
       imageUrl:
-          'https://www.bhf.org.uk/-/media/new-site-images/informationsupport/heart-matters/heart-matters/summer-2018/nutrition/sugary-drinks/water_glass_ss_0618_noexp_620x400.jpg?la=en&rev=869b586bf237457e89ce5fde167624bf&hash=807510B5CFBD2FCEF1477E2B92F4BCDC7E277FC4',
+          'https://www.yummytoddlerfood.com/wp-content/uploads/2021/02/toddler-smoothies-on-counter-with-produce.jpg',
     ),
     const Category(
       name: 'Smoothies',
